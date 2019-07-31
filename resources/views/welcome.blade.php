@@ -81,7 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Tony ♡ Wina
+                    Tony
+                    <br>♡<br>
+                    Wina
                 </div>
 
 

@@ -1,24 +1,31 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: linweiyuan
+ * Date: 2019-08-15
+ * Time: 11:44
+ */
 
-function get_db_config()
-{
-    if (getenv('IS_IN_HEROKU')) {
-        $url = parse_url(getenv("DATABASE_URL"));
+function get_db_config(){
+    if(getenv("IS_IN_HEROKU"))
+    {
+        $url=parse_url(getenv("DATABASE_URL"));
 
-        return $db_config = [
-            'connection' => 'pgsql',
-            'host' => $url["host"],
-            'database'  => substr($url["path"], 1),
-            'username'  => $url["user"],
-            'password'  => $url["pass"],
+        return $db_config=[
+            'connection'=>'pgsql',
+            'host'=>$url['host'],
+            'database'=>substr($url['path'],1),
+            'username'=>$url['user'],
+            'password'=>$url['pass'],
         ];
-    } else {
-        return $db_config = [
-            'connection' => env('DB_CONNECTION', 'mysql'),
-            'host' => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
+    }
+    else{
+        return $db_config=[
+            'connection'=>env('DB_CONNECTION','mysql'),
+            'host'=>env('DB_HOST','localhost'),
+            'database'=>env('DB_DATABASE','forge'),
+            'username'=>env('DB_USERNAME','forge'),
+            'password'=>env('DB_PASSWORD',''),
         ];
     }
 }
